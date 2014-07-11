@@ -24,6 +24,7 @@ colorscheme solarized
 if has('gui_running')
         set background=light
         set guioptions-=T
+        set guifont=DejaVuSansMonoForPowerline
         set columns=180
         set lines=61
 else
