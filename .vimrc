@@ -10,6 +10,9 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/NERDTree'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'ervandew/supertab'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 "call pathogen#infect()
