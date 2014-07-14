@@ -13,9 +13,10 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
+Plugin 'ntpeters/vim-better-whitespace'
 
 call vundle#end()
-"call pathogen#infect()
+
 filetype plugin indent on
 syntax on
 
