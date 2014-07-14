@@ -23,15 +23,13 @@ syntax on
 colorscheme solarized
 
 if has('gui_running')
-        set background=light
+        set background=dark
         set guioptions-=T
         set guifont=DejaVuSansMonoForPowerline
         set columns=180
         set lines=61
 else
-        let g:solarized_termcolors=256
-"        set background=light
-"        let g:solarized_termtrans=1
+        set t_Co=16
         set background=dark
 endif
 
