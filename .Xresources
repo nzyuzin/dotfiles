@@ -1,0 +1,11 @@
+URxvt.depth: 32
+URxvt.background: rgba:2222/2222/2222/7777
+URxvt*.trasparent: true
+URxvt.scrollstyle: plain
+URxvt*.shading: 110
+URxvt.font: xft:DejaVu Sans Mono:size=11
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+URxvt.foreground: ANTIQUEWHITE
+URxvt.backgound: BLACK
