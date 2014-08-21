@@ -26,8 +26,8 @@ if has('gui_running')
         set background=dark
         set guioptions-=T
         set guifont=DejaVuSansMonoForPowerline
-        set columns=180
-        set lines=61
+        set columns=980
+        set lines=961
 else
         set t_Co=16
         set background=dark
@@ -95,4 +95,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 nnoremap <silent> <F8> :TlistToggle<CR>
 nnoremap <silent> <F9> :NERDTreeToggle<CR>
+
+map ;n :bn<cr>
+map ;p :bp<cr>
+map ;d :bd<cr>
 
