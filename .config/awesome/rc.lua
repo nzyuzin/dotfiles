@@ -117,6 +117,7 @@ tags[second_screen] = awful.tag(tags_second.names, second_screen, tags_second.la
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
+   { "mc", "urxvt -e mc" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
