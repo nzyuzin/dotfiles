@@ -1,0 +1,4 @@
+colorscheme solarized-light
+set showtabline=never
+au Fullscreen .* :set guioptions+=s
+set showstatuslinks=command
