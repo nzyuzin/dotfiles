@@ -14,6 +14,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
