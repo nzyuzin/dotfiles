@@ -14,6 +14,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
@@ -25,7 +26,7 @@ colorscheme solarized
 if has('gui_running')
         set background=dark
         set guioptions-=T
-        set guifont=DejaVuSansMonoForPowerline
+        set guifont=Meslo\ LG\ M\ Regular\ For\ Powerline:h11
         set columns=980
         set lines=961
 else
@@ -100,3 +101,23 @@ map ;n :bn<cr>
 map ;p :bp<cr>
 map ;d :bd<cr>
 
+" Detect if the current file type is a C-like language.
+au BufNewFile,BufRead c,cpp,objc,*.mm call SetupForCLang()
+
+" Configuration for C-like languages.
+function! SetupForCLang()
+    setlocal textwidth=80
+    setlocal wrap
+
+    " Use 2 spaces for indentation.
+    setlocal shiftwidth=2
+    setlocal tabstop=2
+    setlocal softtabstop=2
+    setlocal expandtab
+
+    " Configure auto-indentation formatting.
+    setlocal cindent
+    setlocal cinoptions=h1,l1,g1,t0,i4,+4,(0,w1,W4
+    setlocal indentexpr=GoogleCppIndent()
+    let b:undo_indent = "setl sw< ts< sts< et< tw< wrap< cin< cino< inde<"
+endfunction
