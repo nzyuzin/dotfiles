@@ -15,6 +15,8 @@ Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'fatih/vim-go'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'amdt/sunset'
 
 call vundle#end()
 
@@ -24,14 +26,12 @@ syntax on
 colorscheme solarized
 
 if has('gui_running')
-        set background=dark
         set guioptions-=T
         set guifont=Meslo\ LG\ M\ Regular\ For\ Powerline:h11
         set columns=980
         set lines=961
 else
         set t_Co=16
-        set background=light
 endif
 
 set laststatus=2
@@ -93,6 +93,10 @@ let NERDTreeMinimalUI = 1
 let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#tabline#enabled = 1
+
+let g:sunset_utc_offset = 4
+let g:sunset_latitude = 53.2
+let g:sunset_longitude = 50.14
 
 nnoremap <silent> <F8> :TlistToggle<CR>
 nnoremap <silent> <F9> :NERDTreeToggle<CR>
