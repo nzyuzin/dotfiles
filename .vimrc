@@ -31,7 +31,7 @@ if has('gui_running')
         set lines=961
 else
         set t_Co=16
-        set background=dark
+        set background=light
 endif
 
 set laststatus=2
