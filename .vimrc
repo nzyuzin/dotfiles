@@ -15,6 +15,8 @@ Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'fatih/vim-go'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'amdt/sunset'
 
 call vundle#end()
 
@@ -24,14 +26,12 @@ syntax on
 colorscheme solarized
 
 if has('gui_running')
-        set background=dark
         set guioptions-=T
-        set guifont=DejaVuSansMonoForPowerline
+        set guifont=Meslo\ LG\ M\ Regular\ For\ Powerline:h11
         set columns=980
         set lines=961
 else
         set t_Co=16
-        set background=dark
 endif
 
 set laststatus=2
@@ -94,6 +94,10 @@ let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#tabline#enabled = 1
 
+let g:sunset_utc_offset = 4
+let g:sunset_latitude = 53.2
+let g:sunset_longitude = 50.14
+
 nnoremap <silent> <F8> :TlistToggle<CR>
 nnoremap <silent> <F9> :NERDTreeToggle<CR>
 
@@ -101,3 +105,23 @@ map ;n :bn<cr>
 map ;p :bp<cr>
 map ;d :bd<cr>
 
+" Detect if the current file type is a C-like language.
+au BufNewFile,BufRead c,cpp,objc,*.mm call SetupForCLang()
+
+" Configuration for C-like languages.
+function! SetupForCLang()
+    setlocal textwidth=80
+    setlocal wrap
+
+    " Use 2 spaces for indentation.
+    setlocal shiftwidth=2
+    setlocal tabstop=2
+    setlocal softtabstop=2
+    setlocal expandtab
+
+    " Configure auto-indentation formatting.
+    setlocal cindent
+    setlocal cinoptions=h1,l1,g1,t0,i4,+4,(0,w1,W4
+    setlocal indentexpr=GoogleCppIndent()
+    let b:undo_indent = "setl sw< ts< sts< et< tw< wrap< cin< cino< inde<"
+endfunction
