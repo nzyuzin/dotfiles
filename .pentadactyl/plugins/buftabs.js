@@ -22,13 +22,6 @@ let buftabs = {
                         buftabs.options['buftabs'],
                     noValue: true
                 });
-                commandline.widgets.statusbar.buftabs.addEventListener(
-                    'DOMMouseScroll',
-                    function(event) {
-                        window.gBrowser.tabContainer.advanceSelectedTab(
-                            event.detail < 0 ? -1 : 1, true);
-                        event.stopPropagation();
-                    }, true);
 
                 buftabs.toggleProgressBar();
             }

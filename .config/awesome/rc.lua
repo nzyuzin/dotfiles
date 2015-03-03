@@ -46,9 +46,9 @@ end
 beautiful.init(confdir .. "/themes/sonata/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xfce4-terminal"
-editor = os.getenv("EDITOR") or "vi"
-editor_cmd = terminal .. " -x " .. editor
+terminal = "urxvt"
+editor = os.getenv("EDITOR") or "vim"
+editor_cmd = terminal .. " -e " .. editor
 
 local main_screen = 1
 local second_screen = 2
@@ -82,7 +82,7 @@ function run_once(prg)
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 
-autostart = { "xcompmgr", "xrdb " .. homedir .. "/.Xresources" }
+autostart = { "xcompmgr", "xrdb " .. homedir .. "/.Xresources", "xscreensaver" }
 
 for _, prg in pairs(autostart) do
         run_once(prg)
@@ -105,8 +105,8 @@ tags = {
 }
 
 tags_second = {
-        names = { "www", "mc", "term", "skype", "IDE", "torrent", "float", "fs" },
-        layout = { max, fair, fair, fair, max, fair, float, fullscreen }
+        names = { "www", "tile", "float" },
+        layout = { max, fair, float }
 }
 
 tags[main_screen] = awful.tag(tags.names, main_screen, tags.layout)

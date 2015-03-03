@@ -60,7 +60,7 @@ export PATH="$HOME/bin:$HOME/.gem/ruby/2.1.0/bin:/usr/local/heroku/bin:/usr/loca
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -81,4 +81,8 @@ export BROWSER='firefox'
 # ----------------------------------
 
 alias mvl='mpc volume'
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export DISPLAY=:0
+export M2_HOME=/opt/maven/
 
