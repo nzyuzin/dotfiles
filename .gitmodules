@@ -1,0 +1,3 @@
+[submodule "buftabs"]
+	path = .pentadactyl/plugins
+	url = https://github.com/nzyuzin/buftabs.git
