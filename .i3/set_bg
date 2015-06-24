@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+picture=$HOME/Pictures/$PICTURE
+feh --bg-max $picture
