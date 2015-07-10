@@ -17,6 +17,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'fatih/vim-go'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'amdt/sunset'
+Plugin 'kien/rainbow_parentheses.vim'
 
 call vundle#end()
 
@@ -26,61 +27,44 @@ syntax on
 colorscheme solarized
 
 if has('gui_running')
+        set background=dark
         set guioptions-=T
         set guifont=Meslo\ LG\ M\ Regular\ For\ Powerline:h11
         set columns=980
         set lines=961
 else
-        set t_Co=16
+        "set t_Co=16
+        set background=light
 endif
 
 set laststatus=2
-
 set expandtab
-
 set tabstop=2 shiftwidth=2 softtabstop=2
-
 set autoindent
-
 set smarttab
-
 set showcmd
-
 set number
-
 set showmatch
-
 set hlsearch
-
 set incsearch
-
 set ignorecase
-
 set smartcase
-
 set backspace=2
-
 set textwidth=79
-
 set formatoptions=c,q,r,t
-
 set ruler
-
 set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
-
 set cursorline
 set wildmenu
 set wildmode=list:longest,full
-
 set spl=ru,en spell
-
 set noeb vb t_vb=
-
 set undodir=$HOME/.vim/undo
 set undofile
 set undolevels=1000
 set undoreload=10000
+
+let g:tex_flavor = "latex"
 
 let Tlist_Auto_Highlight_Tag = 1
 let Tlist_Auto_Update = 1
@@ -125,3 +109,30 @@ function! SetupForCLang()
     setlocal indentexpr=GoogleCppIndent()
     let b:undo_indent = "setl sw< ts< sts< et< tw< wrap< cin< cino< inde<"
 endfunction
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_max = 16
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
