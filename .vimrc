@@ -16,7 +16,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'fatih/vim-go'
 Plugin 'derekwyatt/vim-scala'
-Plugin 'amdt/sunset'
+Plugin 'vim-scripts/Sunset'
 Plugin 'kien/rainbow_parentheses.vim'
 
 call vundle#end()
