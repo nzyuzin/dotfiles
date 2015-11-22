@@ -6,7 +6,7 @@ then
   exit 2
 fi
 
-PATTERN="*$1*/*[^0-9]$2[^0-9]*"
+PATTERN="*$1*[^0-9]$2[^0-9]*"
 FILENAME=$(find . -regextype posix-extended -maxdepth 2 -not -regex ".*.(ass|srt)" -ipath "$PATTERN")
 
 NUMBER_OF_FILES=$(wc -l <<< $FILENAME)
