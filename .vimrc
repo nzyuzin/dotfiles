@@ -110,6 +110,9 @@ function! SetupForCLang()
     let b:undo_indent = "setl sw< ts< sts< et< tw< wrap< cin< cino< inde<"
 endfunction
 
+" Do not highlight spelling mistakes in log files
+au BufNewFile,BufRead *.log set nospell
+
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
