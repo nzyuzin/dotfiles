@@ -16,8 +16,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'fatih/vim-go'
 Plugin 'derekwyatt/vim-scala'
-Plugin 'amdt/sunset'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 
@@ -33,8 +33,8 @@ if has('gui_running')
         set columns=980
         set lines=961
 else
-        "set t_Co=16
-        set background=light
+        set t_Co=256
+        set background=dark
 endif
 
 set laststatus=2
@@ -50,7 +50,7 @@ set incsearch
 set ignorecase
 set smartcase
 set backspace=2
-set textwidth=79
+"set textwidth=79
 set formatoptions=c,q,r,t
 set ruler
 set grepprg=grep\ -nH\ $*
@@ -92,6 +92,8 @@ map ;d :bd<cr>
 " Detect if the current file type is a C-like language.
 au BufNewFile,BufRead c,cpp,objc,*.mm call SetupForCLang()
 
+au BufNewFile,BufRead *.minilisp set syntax=Scheme
+
 " Configuration for C-like languages.
 function! SetupForCLang()
     setlocal textwidth=80
@@ -131,7 +133,7 @@ let g:rbpt_colorpairs = [
 
 let g:rbpt_max = 16
 
-au VimEnter * RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
