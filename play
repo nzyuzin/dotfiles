@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+
+if [ -z "$1" -o -z "$2" ]
+then
+  echo "Usage: $0 SHOW_NAME EPISODE_NUMBER" >&2
+  exit 2
+fi
+
+PATTERN="*$1*[^0-9]$2[^0-9]*"
+FILENAME=$(find . -regextype posix-extended -maxdepth 2 -not -regex ".*.(ass|srt)" -ipath "$PATTERN")
+
+NUMBER_OF_FILES=$(wc -l <<< $FILENAME)
+
+if [ $NUMBER_OF_FILES -gt 1 ]
+then
+  FILENAME=$(head -1 <<< $FILENAME)
+  echo "Found $NUMBER_OF_FILES files -- using first of them: $FILENAME" >&2
+fi
+
+if [ -n "$FILENAME" ]
+then
+  mpv "$FILENAME"
+else
+  echo "Can't find file that satisfies pattern: $PATTERN" >&2
+  exit 1
+fi
