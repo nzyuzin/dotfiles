@@ -11,6 +11,7 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/NERDTree'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -66,6 +67,16 @@ set undoreload=10000
 
 let g:tex_flavor = "latex"
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_ocaml_checkers = ['merlin']
+
 let Tlist_Auto_Highlight_Tag = 1
 let Tlist_Auto_Update = 1
 let Tlist_Use_Right_Window = 1
@@ -89,6 +100,8 @@ map ;d :bd<cr>
 au BufNewFile,BufRead c,cpp,objc,*.mm call SetupForCLang()
 
 au BufNewFile,BufRead *.minilisp set syntax=Scheme
+
+au FileType ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
 
 " Configuration for C-like languages.
 function! SetupForCLang()
@@ -137,6 +150,7 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesLoadChevrons
+
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 let s:opam_share_dir = system("opam config var share")
 let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
