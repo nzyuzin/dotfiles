@@ -9,7 +9,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/NERDTree'
-Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'ervandew/supertab'
@@ -19,6 +18,8 @@ Plugin 'fatih/vim-go'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'let-def/vimbufsync'
+Plugin 'the-lambda-church/coquille'
 
 call vundle#end()
 
@@ -77,10 +78,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ocaml_checkers = ['merlin']
 
-let Tlist_Auto_Highlight_Tag = 1
-let Tlist_Auto_Update = 1
-let Tlist_Use_Right_Window = 1
-
 let NERDChristmasTree = 1
 let NERDTreeChDirMode = 2
 let NERDTreeMinimalUI = 1
@@ -89,7 +86,8 @@ let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#tabline#enabled = 1
 
-nnoremap <silent> <F8> :TlistToggle<CR>
+let g:coquille_auto_move = 1
+
 nnoremap <silent> <F9> :NERDTreeToggle<CR>
 
 map ;n :bn<cr>
@@ -102,6 +100,9 @@ au BufNewFile,BufRead c,cpp,objc,*.mm call SetupForCLang()
 au BufNewFile,BufRead *.minilisp set syntax=Scheme
 
 au FileType ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+
+" Maps Coquille commands to <F2> (Undo), <F3> (Next), <F4> (ToCursor)
+au FileType coq call coquille#FNMapping()
 
 " Configuration for C-like languages.
 function! SetupForCLang()
